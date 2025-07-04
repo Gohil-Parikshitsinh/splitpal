@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   SignInButton,
@@ -6,9 +8,16 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+
+import useStoreUser from "@/hooks/use-store-users";
+import { BarLoader } from "react-spinners";
 const Header = () => {
+
+  const {isLoading} = useStoreUser()
   return (
-    <div>
+    <header className="fixed top-0 w-full border-b bg-white/95 backdrop-blur z-50 supports-[backdrop-filter]:bg-white/60">
+      <nav>
+
       <SignedOut>
         <SignInButton />
         <SignUpButton></SignUpButton>
@@ -16,7 +25,9 @@ const Header = () => {
       <SignedIn>
         <UserButton />
       </SignedIn>
-    </div>
+      </nav>
+      {isLoading && <BarLoader width={"100%"} color="#36d7b7" />}
+    </header>
   );
 };
 
