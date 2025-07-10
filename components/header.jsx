@@ -74,10 +74,13 @@ const Header = () => {
           
           <Unauthenticated>
             <SignInButton>
-              <Button className="bg-green-600 hover:bg-green-700 border-none">Sign-In</Button>
+              <Button variant="ghost">Sign In</Button>
             </SignInButton>
+
             <SignUpButton>
-              <Button className="bg-green-600 hover:bg-green-700 border-none">Sign-Up</Button>
+              <Button className="bg-green-600 hover:bg-green-700 border-none">
+                Get Started
+              </Button>
             </SignUpButton>
           </Unauthenticated>
         </div>
